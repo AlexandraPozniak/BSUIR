@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
+import java.util.ArrayList;
 
 public class BasicSwing extends JFrame{
 
@@ -17,9 +18,7 @@ public class BasicSwing extends JFrame{
 
     public class ButtonActionListener implements ActionListener{
         public void actionPerformed(ActionEvent e){
-            int c = 0;
-            String text_from_field = text.getText().toString();
-            c++;
+            choices.add(text.getText());
             text.setText("");
 
 
@@ -49,9 +48,7 @@ public class BasicSwing extends JFrame{
         ActionListener actionListener = new ButtonActionListener();
         button.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                int c = 0;
-                String text_from_field = text.getText().toString();
-                c++;
+                choices.add(text.getText());
                 text.setText("");
 
             }
