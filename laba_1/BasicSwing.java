@@ -1,46 +1,60 @@
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JTextField;
-import javax.swing.JTextArea;
-import javax.swing.JLabel;
 import javax.swing.JComboBox;
 
 public class BasicSwing extends JFrame{
 
-    JPanel p=new JPanel();
-    JButton b=new JButton("Push");
-    JTextField t=new JTextField("Text",10);
-    JTextArea ta=new JTextArea("How\nAre\nU?",5,20);
-    JLabel l=new JLabel("HI");
-    String choices[]={
-            "alla",
-            "balla",
-            "calla"
-    };
-    JComboBox<String> cb=new JComboBox<>(choices);
+    JPanel panel=new JPanel();
+    JButton button=new JButton("");
+    JTextField text=new JTextField("Text",10);
+    List<String> choices = new ArrayList<String>();
+    JComboBox<String> combobox=new JComboBox<>(choices);
 
+    public class ButtonActionListener implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+            int c = 0;
+            String text_from_field = text.getText().toString();
+            c++;
+            text.setText("");
+
+
+        }
+    }
 
     public static void main(String[] args){
         new BasicSwing();
     }
 
     public BasicSwing(){
-      super("Basic Swing App");
 
-      setSize(400,300);
-      setResizable(true);
+        super("Basic Swing App");
 
-      p.add(b);
-      p.add(t);
-      p.add(ta);
-      p.add(l);
-      p.add(cb);
-      add(p);
+        setSize(400,300);
+        setResizable(true);
 
-      setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        panel.add(button);
+        panel.add(text);
+        panel.add(combobox);
+        add(panel);
 
-      setVisible(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        setVisible(true);
+
+        ActionListener actionListener = new ButtonActionListener();
+        button.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                int c = 0;
+                String text_from_field = text.getText().toString();
+                c++;
+                text.setText("");
+
+            }
+        });
     }
 }
